@@ -1,0 +1,24 @@
+.input-field input {
+  border-color: transparent;
+  border: 1px solid white;
+  line-height: 30px;
+  min-width: 250px;
+  min-height: 40px;
+}
+
+.input-field label {
+  top: 0;
+  font-size: var(--font-size-small);
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.2s ease-out;
+}
+
+.input-field label[for=dynamic-label-input] {
+  display: flex;
+}
+
+.input-field input:placeholder-shown + label {
+  opacity: 0;
+  transform: translateY(1rem);
+}

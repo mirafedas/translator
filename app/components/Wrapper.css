@@ -1,0 +1,16 @@
+body {
+  background-color: #12141e;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding-top: 30px;
+  font-family: 'Chakra Petch', sans-serif;
+  color: white;
+  background-color: #12141e;
+}
