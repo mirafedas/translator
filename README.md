@@ -2,7 +2,7 @@
 * Front-camp [facebook](https://www.facebook.com/groups/270300106928894)
 
 
-## Project name: Translator to non-existing languages
+## Project name: Translator
 
 [Demo](http://test-app-translator.herokuapp.com/)  
 > This is a translator to Yoda, Minion and pirate languages. Input any word in English to see the translation.
