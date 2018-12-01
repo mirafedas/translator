@@ -5,15 +5,12 @@
 ## Project name: Translator to non-existing languages
 
 [Demo](https://mira-tic-tac-toe.herokuapp.com/)  
-> This is a translator to non-existing languages. Input any word in English to see the translation.
+> This is a translator to Yoda, Minion and pirate languages. Input any word in English to see the translation.
 
 ## Tech stack
 
 * React 
 * Redux
-* Express
-* MongoDB
-
 
 ## Mockups
 [Link](https://wireframepro.mockflow.com/view/tic-tak-toe-by-mira#/page/D23054405e2341960e539685a0de802b4)   
@@ -24,5 +21,6 @@
 
 ## TODO
 
-1. 
+1. Add animation for text in OutputField.js;
+2. Add sounds.
 
