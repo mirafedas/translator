@@ -2,5 +2,6 @@
  * Asynchronously loads the component for NotFoundPage
  */
 import loadable from 'loadable-components';
+import index from './index';
 
-export default loadable(() => import('./index'));
+export default loadable(() => index);

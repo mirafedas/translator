@@ -1,28 +1,29 @@
 import React from 'react';
 import './OutputField.css';
+import { newInput } from './selectors';
+import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
 
 class OutputField extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {value: ''};
-  }
-
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.receivedData && nextProps.receivedData.data) {
-      const { contents, error } = nextProps.receivedData.data;
-      const value = contents && contents.translated || (error && error.message) || 'ERROR';
-      this.setState({ value });
-    }
   }
 
   render () {
     return (
-      <div className='outputField'>
+      <div className='output-field'>
         Your translation here:<br />
-        <div id='output'>{this.state.value}</div>
+        <div className='output'>{this.props.value}</div>
       </div>
     );
   }
 }
 
-export default OutputField;
+const mapStateToProps = createSelector(newInput(), currentState => ({
+  value: currentState
+}));
+
+export default connect(
+  mapStateToProps,
+  null,
+)(OutputField);

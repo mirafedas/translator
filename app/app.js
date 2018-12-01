@@ -17,7 +17,6 @@ import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
 
 // Import root app
-import App from 'containers/App';
 import Wrapper from './components/Wrapper';
 
 // Import Language Provider
@@ -33,6 +32,8 @@ import configureStore from './configureStore';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
+import intl from 'intl';
+import en from 'intl/locale-data/jsonp/en.js';
 
 // Create redux store with history
 const initialState = {};
@@ -65,9 +66,9 @@ if (module.hot) {
 // Chunked polyfill for browsers without Intl support
 if (!window.Intl) {
   new Promise(resolve => {
-    resolve(import('intl'));
+    resolve(intl);
   })
-    .then(() => Promise.all([import('intl/locale-data/jsonp/en.js')]))
+    .then(() => Promise.all([en]))
     .then(() => render(translationMessages))
     .catch(err => {
       throw err;

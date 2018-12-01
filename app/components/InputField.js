@@ -1,36 +1,50 @@
 import React from 'react';
 import './InputField.css';
+import { chosenRadiobutton } from './selectors';
+import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
+import { inputFieldReducer } from './actions';
 
 class InputField extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
-    this.state = {value: '', language: props.selectedLanguage};
+    this.state = {
+      value: ''
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({language: nextProps.selectedLanguage});
+  handleChange (event) {
+    this.setState({ value: event.target.value });
   }
 
-  handleChange = (event) => {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit = (event) => {
+  handleSubmit (event) {
     event.preventDefault();
-    const API = `https://api.funtranslations.com/translate/${this.state.language}.json?text=${this.state.value}`;
+    const API = 'https://api.funtranslations.com/translate/' + this.props.selectedOption +
+    '.json?text=' + this.state.value;
     fetch(API)
       .then(response => response.json())
       .then(data => {
-        this.props.handleDataReceived({ data });
+        let value = 'Something went wrong';
+        if (data) {
+          const { contents, error } = data;
+          value = contents && contents.translated || (error && error.message) || 'ERROR';
+        }
+        this.props.handleInputChange(value);
       });
   }
 
-  render() {
+  render () {
     return (
       <div className='input-field'>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="dynamic-label-input">Input your text here:</label>
-          <input type="text" id="dynamic-label-input" placeholder="Input your text here:" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" id="dynamic-label-input"
+          placeholder="Input your text here:"
+          value={this.state.value}
+          onChange={this.handleChange} />
           <button type="submit" value="Go!">Go!</button>
         </form>
       </div>
@@ -38,4 +52,15 @@ class InputField extends React.Component {
   }
 }
 
-export default InputField;
+const mapDispatchToProps = dispatch => ({
+  handleInputChange: data => dispatch(inputFieldReducer(data))
+});
+
+const mapStateToProps = createSelector(chosenRadiobutton(), currentState => ({
+  selectedOption: currentState
+}));
+
+export default connect (
+  mapStateToProps,
+  mapDispatchToProps,
+)(InputField);

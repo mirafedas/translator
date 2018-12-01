@@ -7,37 +7,20 @@ import Particles from 'react-particles-js';
 import './Wrapper.css';
 
 class Wrapper extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
-    this.state = {
-      selectedLanguage: 'yoda',
-      receivedData: ''
-    };
   }
 
-  handleLanguageChange = (value) => {
-    this.setState({
-      selectedLanguage: value
-    });
-  }
-
-  handleDataReceived = (data) => {
-    this.setState({
-      receivedData: data
-    });
-  }
-
-  render() {
-    const { selectedLanguage, receivedData } = this.state;
+  render () {
     return (
       <div className='wrapper'>
         <Particles />
         <Header />
-        <RadioButtons handleLanguageChange={this.handleLanguageChange} />
-        <InputField selectedLanguage={selectedLanguage} handleDataReceived={this.handleDataReceived}/>
-        <OutputField receivedData={receivedData}/>
+        <RadioButtons />
+        <InputField />
+        <OutputField />
       </div>
-    )
+    );
   }
 }
 

@@ -6,7 +6,8 @@ module.exports = {
     "jest/globals": true
   },
   "extends": [
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:react/recommended"
   ],
   "parserOptions": {
       "ecmaFeatures": {
@@ -58,6 +59,7 @@ module.exports = {
       "no-nested-ternary": "error",
       "max-params": ["error", 3],
       "space-before-function-paren": ["error", "always"],
-      "no-console": ["error", { "allow": ["warn", "error"]}]
+      "no-console": ["error", { "allow": ["warn", "error"]}],
+      "react/prop-types": [0]
   }
 };
