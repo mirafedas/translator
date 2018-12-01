@@ -5,7 +5,7 @@
 ## Project name: Translator to non-existing languages
 
 [Demo](https://mira-tic-tac-toe.herokuapp.com/)  
-> This is a translator to Yoda, Minion and pireate languages. Input any word in English to see the translation.
+> This is a translator to Yoda, Minion and pirate languages. Input any word in English to see the translation.
 
 ## Tech stack
 
