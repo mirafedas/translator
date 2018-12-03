@@ -22,7 +22,10 @@ class InputField extends React.Component {
 
   handleSubmit (event) {
     event.preventDefault();
-    const API = 'https://api.funtranslations.com/translate/' + this.props.selectedOption +
+    if (!navigator.onLine) {
+      return alert('No connection!');
+    }
+    const API = 'http://api.funtranslations.com/translate/' + this.props.selectedOption +
     '.json?text=' + this.state.value;
     fetch(API)
       .then(response => response.json())
@@ -40,11 +43,13 @@ class InputField extends React.Component {
     return (
       <div className='input-field'>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="dynamic-label-input">Input your text here:</label>
-          <input type="text" id="dynamic-label-input"
-          placeholder="Input your text here:"
-          value={this.state.value}
-          onChange={this.handleChange} />
+          <label>Input your text here:</label>
+          <input
+            type="text"
+            placeholder="Input your text here:"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
           <button type="submit" value="Go!">Go!</button>
         </form>
       </div>

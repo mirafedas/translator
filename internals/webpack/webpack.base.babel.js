@@ -4,6 +4,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 
 // Remove this line once the following warning goes away (it was meant for webpack loader authors not users):
 // 'DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic,
@@ -122,7 +123,17 @@ module.exports = options => ({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
+    new ServiceWorkerWebpackPlugin({
+      entry: path.join(process.cwd(), 'app/service-worker.js'),
+      excludes: [
+        '*/.',
+        '*/.map',
+        '*.html',
+      ],
+      filename: 'service-worker.js'
+    })
   ]),
+
   resolve: {
     modules: ['node_modules', 'app'],
     extensions: ['.js', '.jsx', '.react.js'],

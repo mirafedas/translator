@@ -1,10 +1,3 @@
-/**
- * app.js
- *
- * This is the entry file for the application, only setup and boilerplate
- * code.
- */
-
 // Needed for redux-saga es6 generator support
 import '@babel/polyfill';
 
@@ -15,6 +8,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router/immutable';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
+import register from './register';
 
 // Import root app
 import Wrapper from './components/Wrapper';
@@ -83,3 +77,5 @@ if (!window.Intl) {
 if (process.env.NODE_ENV === 'production') {
   require('offline-plugin/runtime').install(); // eslint-disable-line global-require
 }
+
+register();
