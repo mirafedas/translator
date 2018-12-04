@@ -20,7 +20,9 @@ There is a limit: you can perform 5 requests per hour only! After reaching the l
 ## Contribution guide and templates
 
 [Please check our guide](https://github.com/myrosvas/translator/blob/master/Contribution%20Guide.md)
+
 [Pull request template](https://github.com/myrosvas/translator/blob/master/Pull%20Request%20Template.md)
+
 [Issue template](https://github.com/myrosvas/translator/blob/master/Issue%20template.md)
 
 ## TODO
