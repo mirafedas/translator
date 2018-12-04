@@ -25,9 +25,10 @@ class InputField extends React.Component {
     if (!navigator.onLine) {
       return alert('No connection!');
     }
-    const API = 'http://api.funtranslations.com/translate/' + this.props.selectedOption +
+    const proxyUrl = 'https://fathomless-escarpment-83355.herokuapp.com/';
+    const API = 'https://api.funtranslations.com/translate/' + this.props.selectedOption +
     '.json?text=' + this.state.value;
-    fetch(API)
+    fetch(proxyUrl + API)
       .then(response => response.json())
       .then(data => {
         let value = 'Something went wrong';

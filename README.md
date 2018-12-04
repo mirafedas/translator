@@ -3,10 +3,7 @@
 
 
 ## Project name: Translator
-
-[Demo1](http://test-app-translator.herokuapp.com/)  - for testing fetch (http)
-
-[Demo2](https://test-app-translator.herokuapp.com/)  - for testing offline support (https)
+[Demo](https://test-app-translator.herokuapp.com/)
 
 > This is a translator to Yoda, Minion and pirate languages. Input any word in English to see the translation.
 There is a limit: you can perform 5 requests per hour only! After reaching the limit you will see an error message displayed.
